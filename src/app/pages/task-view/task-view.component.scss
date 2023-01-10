@@ -1,3 +1,5 @@
+@import '../../../main_styles.scss';
+
 .centered-content {
   display: flex;
   justify-content: center;
@@ -12,6 +14,7 @@
   height: 100%;
   max-width: 1000px;
   max-height: 480px;
+  
 }
 
 .sidebar {
@@ -19,14 +22,85 @@
   flex-direction: column;
 
   width: 250px;
-  background: white;
+
+  padding: 42px;
+
+  border-radius: 8px 0px;
 }
 
 .task-list-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 
 
   width: 750px;
-  background: green;
+
+  padding: 42px;
+
+  border-radius: 0px 8px;
+
+}
+
+.title {
+  font-family: 'Lato';
+  font-size: 24px;
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.list-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  flex-grow: 1;
+
+  .list-menu-item {
+    display: flex;
+
+
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100%;
+    color: #5f5f5f;
+
+    margin-bottom: 5px;
+
+    &:hover {
+      background: $light-green;
+    }
+
+    &.is-active {
+      background: #cff8ef;
+      color: $dark-green;
+    }
+  }
+}
+
+.task {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+
+  &:not(.complete) {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  
+    &:active {
+      transform: scale(0.90);
+    }
+  
+    &:hover {
+      box-shadow: 0 0 0 5px #eeeeee;
+    }
+  }
+
+
+  &.complete {
+    text-decoration: line-through;
+    opacity: 0.8;
+  }
 }
